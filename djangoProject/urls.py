@@ -14,17 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import django_eventstream
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from djangoProject.djangoProject import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('PA/', include('PA.urls')),
     # path('PB/', include('PB.urls')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
